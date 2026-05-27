@@ -1,95 +1,36 @@
 {
   "name": "ia-shared-library",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Biblioteca compartilhada de skills, agents e tools para Claude Code",
   "repository": "https://github.com/filipesfelisberto/ia",
   "skills": [
     {
-      "id": "math-operations",
-      "name": "Math Operations",
-      "path": "skills/math-operations/SKILL.md",
-      "trigger": "mathematical calculations, equations, statistics, percentages, algebra, numerical analysis",
-      "command": "/math",
-      "argument_hint": "<expressão ou problema matemático>",
+      "id": "git-commit",
+      "name": "Git Commit com Gitmoji",
+      "path": "skills/git-commit/SKILL.md",
+      "trigger": "commit, push, PR, git workflow, gitmoji, versionamento semântico",
+      "command": "/commit",
+      "argument_hint": "<tipo de mudança>",
       "allowed_tools": ["Bash"],
-      "mcp_tools": ["calculate", "statistics", "solve_equation"],
       "examples": [
-        "calcule 15% de 200",
-        "resolva x^2 - 4 = 0",
-        "média de [10, 20, 30, 40]",
-        "juros compostos de 5% ao mês por 12 meses sobre R$1000"
+        "commita o que foi feito",
+        "faz o commit e abre uma PR",
+        "registra as mudanças",
+        "sobe as alterações"
       ]
     }
   ],
-  "agents": [
-    {
-      "id": "math-agent",
-      "name": "Math Agent",
-      "path": "agents/math-agent.md",
-      "model": "sonnet",
-      "specialty": "Complex mathematical reasoning, proofs, multi-step problem solving, advanced statistics",
-      "when_to_use": "When the problem requires sustained mathematical reasoning across multiple steps, or when detailed explanations are needed alongside calculations"
-    }
-  ],
+  "agents": [],
   "commands": [
     {
-      "id": "math",
-      "name": "/math",
-      "path": "commands/math.md",
-      "description": "Explicitly invoke math skill with an expression or problem",
-      "usage": "/math <expressão>"
+      "id": "commit",
+      "name": "/commit",
+      "path": "commands/commit.md",
+      "description": "Executa o fluxo completo de git: commits Gitmoji, versionamento semântico, push e PR",
+      "usage": "/commit"
     }
   ],
-  "mcp_tools": [
-    {
-      "name": "calculate",
-      "description": "Evaluate any mathematical expression with full precision using mathjs",
-      "parameters": {
-        "expression": {
-          "type": "string",
-          "description": "Mathematical expression to evaluate",
-          "examples": ["2^10", "sqrt(144)", "sin(pi/2)", "15% * 200", "factorial(10)"]
-        }
-      },
-      "returns": "string — the computed result",
-      "example_call": "calculate('2^10 + sqrt(144)')"
-    },
-    {
-      "name": "statistics",
-      "description": "Compute descriptive statistics on a dataset",
-      "parameters": {
-        "data": {
-          "type": "number[]",
-          "description": "Array of numbers to analyze"
-        },
-        "operations": {
-          "type": "string[]",
-          "enum": ["mean", "median", "mode", "std", "variance", "min", "max", "sum", "count"],
-          "description": "Statistical operations to compute"
-        }
-      },
-      "returns": "JSON object with requested statistics",
-      "example_call": "statistics([10, 20, 30, 40], ['mean', 'std', 'min', 'max'])"
-    },
-    {
-      "name": "solve_equation",
-      "description": "Solve a linear or quadratic equation for a given variable",
-      "parameters": {
-        "equation": {
-          "type": "string",
-          "description": "Equation with '=' separator",
-          "examples": ["x^2 - 4 = 0", "2*x + 5 = 13"]
-        },
-        "variable": {
-          "type": "string",
-          "default": "x",
-          "description": "Variable to solve for"
-        }
-      },
-      "returns": "string — one solution per line",
-      "example_call": "solve_equation('x^2 - 4 = 0', 'x')"
-    }
-  ],
+  "mcp_tools": [],
   "installation": {
     "plugin": "bash install.sh [--project /path/to/project]",
     "mcp_local": {

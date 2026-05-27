@@ -92,9 +92,9 @@ export function registerMinhasTools(server: McpServer): void {
 4. Documente no `CATALOG.md` e `registry.json`
 
 ### Convenções de nomenclatura
-- Skills: `kebab-case` (ex: `math-operations`, `text-processing`)
-- Agents: `kebab-case` + sufixo `-agent` (ex: `math-agent`)
-- MCP tools: `snake_case` (ex: `calculate`, `solve_equation`)
+- Skills: `kebab-case` (ex: `git-commit`, `text-processing`)
+- Agents: `kebab-case` + sufixo `-agent` (ex: `git-agent`)
+- MCP tools: `snake_case` (ex: `run_command`, `fetch_url`)
 - Arquivos TypeScript: `camelCase.ts`
 
 ### Build e teste
@@ -105,9 +105,6 @@ npm run build
 
 # Testar MCP server localmente
 npm start
-
-# Testar uma tool específica (exemplo)
-echo '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"calculate","arguments":{"expression":"2^10"}}}' | node mcp-server/dist/index.js
 ```
 
 ---
@@ -129,7 +126,7 @@ Para referência machine-readable:
 cat .mcp.json | grep "ia-tools"
 
 # Verificar se commands estão instalados
-ls .claude/commands/ | grep -E "math"
+ls .claude/commands/
 
 # Verificar context file
 cat .claude/ia-skills-context.md
@@ -137,10 +134,9 @@ cat .claude/ia-skills-context.md
 
 ### Invocar skills disponíveis
 
-**Math Operations**:
-- Automaticamente: peça qualquer cálculo em linguagem natural
-- Explicitamente: `/math <expressão>`
-- Via MCP: `calculate("expressão")`, `statistics([...], [...])`, `solve_equation("eq", "var")`
+**Git Commit**:
+- Automaticamente: peça para commitar, fazer push ou abrir PR em linguagem natural
+- Explicitamente: `/commit`
 
 ---
 

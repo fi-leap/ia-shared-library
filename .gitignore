@@ -3,3 +3,4 @@ mcp-server/dist/
 *.js.map
 *.d.ts.map
 .DS_Store
+.claude/settings.local.json
