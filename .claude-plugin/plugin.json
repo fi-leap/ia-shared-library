@@ -1,0 +1,8 @@
+{
+  "name": "ia-shared-library",
+  "description": "Biblioteca compartilhada de skills, agents e tools para projetos Claude Code",
+  "version": "1.0.0",
+  "author": "filipe",
+  "homepage": "https://github.com/filipesfelisberto/ia",
+  "tags": ["math", "utilities", "shared", "mcp"]
+}

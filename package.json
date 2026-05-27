@@ -1,0 +1,13 @@
+{
+  "name": "ia-shared-library",
+  "version": "1.0.0",
+  "description": "Biblioteca compartilhada de skills, agents e tools para projetos Claude Code",
+  "author": "filipe <filipesfelisberto@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "cd mcp-server && npm install && npm run build",
+    "start": "node mcp-server/dist/index.js",
+    "install-plugin": "bash install.sh",
+    "dev": "cd mcp-server && npm run dev"
+  }
+}
