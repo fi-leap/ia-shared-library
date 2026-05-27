@@ -56,9 +56,8 @@ install_global() {
 
   echo ""
   echo "Done! The following are now available globally in Claude Code:"
-  echo "  Skills:   math-operations (auto-invoked)"
-  echo "  Commands: /math"
-  echo "  Agent:    math-agent"
+  echo "  Skills:   git-commit (auto-invoked)"
+  echo "  Commands: /commit"
   echo ""
   echo "To also enable MCP tools, add to ~/.claude/settings.json:"
   cat << EOF
@@ -131,33 +130,19 @@ This project has the **ia-shared-library** installed from:
 ## Available Resources
 
 ### Slash Commands
-- \`/math <expression>\` — Solve math problems, equations, or compute statistics
+- \`/commit\` — Execute the full git workflow: Gitmoji commits, semantic versioning, push and PR
 
 ### Skills (auto-invoked by the AI)
-- **math-operations**: Automatically activated when the user asks about calculations,
-  equations, percentages, or statistical analysis
-
-### Agents (subagents you can spawn)
-- **math-agent**: Specialized in complex mathematical reasoning and proofs
-
-### MCP Tools (available if MCP server is running)
-- \`calculate(expression: string)\` — Evaluate any math expression with full precision
-- \`statistics(data: number[], operations: string[])\` — Descriptive statistics
-- \`solve_equation(equation: string, variable?: string)\` — Solve linear/quadratic equations
+- **git-commit**: Automatically activated when the user asks to commit, push, or open a PR
 
 ## Quick Reference
 
 \`\`\`
-# User asks: "calcule 15% de 200"
-→ math-operations skill is auto-invoked
-→ OR: use MCP tool calculate("200 * 0.15") → 30
+# User asks: "commita o que foi feito"
+→ git-commit skill is auto-invoked
 
-# User asks: "resolva x^2 - 4 = 0"
-→ math-operations skill handles it
-→ OR: use MCP tool solve_equation("x^2 - 4 = 0", "x") → "x = 2\nx = -2"
-
-# User asks: "média de [10, 20, 30, 40]"
-→ OR: use MCP tool statistics([10,20,30,40], ["mean"]) → {"mean": 25}
+# User asks: "faz o commit e abre uma PR"
+→ git-commit skill handles the full workflow
 \`\`\`
 
 ## Adding More Skills
