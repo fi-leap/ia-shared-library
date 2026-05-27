@@ -1,6 +1,6 @@
 {
   "name": "ia-shared-library",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Biblioteca compartilhada de skills, agents e tools para Claude Code",
   "repository": "https://github.com/filipesfelisberto/ia",
   "skills": [
